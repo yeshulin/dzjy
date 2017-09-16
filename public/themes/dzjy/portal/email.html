@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <include file="public@scripts"/>
+    <hook name="before_head_end"/>
+    <style type="text/css">
+        .form-group{
+            clear: both;
+
+        }
+        form label, .radio label, .checkbox label{
+            width: 100px;
+            display: block;
+            float: left;
+        }
+        .sy-guestbook .form-control{
+            margin-bottom: 10px;
+            float: left;
+            box-shadow:none;
+            border: solid 1px #e2e2e2;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body class="bg">
+<!--返回顶部按钮-->
+<!--顶层容器-->
+<div class="topBox">
+    <include file="public@nav"/>
+
+    <include file="public@search"/>
+
+    <!--主体-->
+    <div class="w1000 center mt20 overflowHidden">
+        <div class="wAuto contentBox" style="min-height: 141px;">
+            <div class="p30">
+                <div class="content04">
+                    <h1 id="news_title">{$page.post_title|default=''}</h1>
+                 </div>
+                <div class="content06">
+
+                <div class="col-md-6">
+
+                    <php>$guestbook=hook_one('guestbook');
+
+                    </php>
+                    <if condition="empty($guestbook) && cmf_get_current_admin_id()">
+                        <div style="border: 1px dashed #ddd;min-height: 300px;padding-top: 100px;">
+                            <div class="alert alert-warning" role="alert">
+                                此区域这为留言区，请安装留言插件！<br>
+                                <em>注：普通用户不会看到此提示！</em>
+                            </div>
+                        </div>
+                    </if>
+                    {$guestbook}
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+<hook name="before_body_end"/>
+</body></html>

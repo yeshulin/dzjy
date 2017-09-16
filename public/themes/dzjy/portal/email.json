@@ -1,0 +1,11 @@
+{
+    "name": "信箱页",
+    "action": "portal/Page/index",
+    "description": "信箱页模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+
+        }
+    }
+}
