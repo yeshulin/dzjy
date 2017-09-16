@@ -1,0 +1,121 @@
+﻿@charset "utf-8"; 
+/*reset*/
+html, body, div, span, applet, object, iframe,h1, 
+h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, 
+acronym, address, big, cite, code,del, dfn, em, 
+font, img, ins, kbd, q, s, samp,small, strike, 
+strong, sub, sup, tt, var,b, u, i, center,dl, 
+dt, dd, ol, ul, li,fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;/*background: transparent;*/}
+body,html {font: normal 85% Microsoft YaHei, Helvetica, Arial, sans-serif; color: #808080; line-height:170%;min-width:1000px ; /*min-height:650px;*/ _overflow:hidden }
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none;}
+/* remember to define focus styles! */
+:focus {outline: 0;}
+/* remember to highlight inserts somehow! */
+ins {text-decoration: none;}
+del {text-decoration: line-through;}
+/* tables still need 'cellspacing="0"' in the markup */
+table {border-collapse: collapse;border-spacing: 0;}
+i,em{ font-style:normal}
+/*common*/
+input,textarea{font-family:"Microsoft YaHei", "Helvetica", "Arial", "sans-serif"; color:#808080 }
+input{ }  
+/*input:focus{ border:#44a7e6 2px solid !important; padding:5px !important}*/  
+a{text-decoration: none; color:#808080}
+a:hover{text-decoration: none; color:#0054aa}
+img{border:none;/*display:block*/}
+.noBorder{ border:none !important}
+.hidden{ display:none !important}
+.show{ display:block}
+.center{ margin:0 auto}
+.tLeft{ text-align:left !important;}
+.tCenter{ text-align:center !important;}
+.tRight{ text-align:right !important;}
+.wAuto{width:100% !important;}
+.f_l{ float:left}
+.f_r{ float:right}
+.clear{ clear:both;}
+.mt5{ margin-top:5px;}
+.mt8{ margin-top:8px;}
+.mt10{ margin-top:10px;}
+.mt15{ margin-top:15px;}
+.mt20{ margin-top:20px;}
+.mt30{ margin-top:30px;}
+.mt40{ margin-top:40px;}
+.mt50{ margin-top:50px;}
+.ml5{ margin-left:5px;}
+.ml10{ margin-left:10px;}
+.ml20{ margin-left:20px;}
+.ml30{ margin-left:30px;}
+.ml40{ margin-left:40px;}
+.ml50{ margin-left:50px;}
+.mr5{ margin-right:5px;}
+.mr8{ margin-right:8px;}
+.mr10{ margin-right:10px;}
+.mr20{ margin-right:20px;}
+.mr30{ margin-right:30px;}
+.mb5{ margin-bottom:5px;}
+.mb10{ margin-bottom:10px;}
+.mb15{ margin-bottom:15px;}
+.mb20{ margin-bottom:20px;}
+.mb30{ margin-bottom:30px;}
+.pt5{ padding-top:5px !important}
+.pt10{ padding-top:10px;}
+.pt20{ padding-top:20px;}
+.pt30{ padding-top:30px;}
+.pt40{ padding-top:40px;}
+.pl5{ padding-left:5px;}
+.pl10{ padding-left:10px;}
+.pl20{ padding-left:20px;}
+.pl30{ padding-left:30px;}
+.pr5{ padding-right:5px;}
+.pr10{ padding-right:10px;}
+.pr20{ padding-right:20px;}
+.pr30{ padding-right:30px;}
+.pb5{ padding-bottom:5px;}
+.pb10{ padding-bottom:10px;}
+.pb20{ padding-bottom:20px;}
+.pb30{ padding-bottom:30px;}
+.pb40{ padding-bottom:40px;}
+.p5{ padding:5px;}
+.p10{ padding:10px;}
+.p20{ padding:20px;}
+.p30{ padding:30px;}
+.m5{ margin:5px;}
+.m10{ margin:10px;}
+.m20{ margin:20px;}
+.m30{ margin:30px;}
+.overHidden{overflow:hidden;text-overflow: ellipsis; white-space: nowrap;}
+.radius5{-webkit-border-radius: 50px;  -moz-border-radius: 50px;  border-radius: 50px;}
+.radiusHalf{-webkit-border-radius: 50%;  -moz-border-radius: 50%;  border-radius: 50%;}
+.radius10{-webkit-border-radius: 10px;  -moz-border-radius: 10px;  border-radius: 10px;}
+.relative{ position:relative}
+.absolute{ position:absolute}
+.wP60{ width:60%}
+.wP40{ width:60%}
+.w100{ width:100px;}
+.w80{ width:80px;}
+.indent2em{text-indent:2em;}
+.font20{ font-size:20px;}
+.font12{ font-size:12px !important;}
+.font13{ font-size:13px;}
+.font14{ font-size:14px;}
+.font16{ font-size:16px;}
+.font18{ font-size:18px !important;}
+.fontWeight{ font-weight:bolder}
+.bgfff{ background-color:#fff}
+.bgWhite85{ background:url(../images/white85.png)}
+.borderR{ border-right:#e5e5e5 1px solid}
+.hAuto{ height:100%}
+.color1d307e{color:#1d307e}
+.overflowHidden{overflow:hidden !important}
+.overflowYShow{overflow-x:hidden !important;overflow-y:auto !important}
+.overflowXShow{overflow-x:auto !important;overflow-y:hidden !important}
+.overflowShow{overflow:auto !important}
+.myCheck{ width:16px; height:16px; margin:0px; padding:0px; background-color:#fff; border:#e5e5e5 1px solid}
+/*.myFilter{ filter:alpha(opacity=80);-moz-opacity:0.8; -khtml-opacity:0.7;  opacity: 0.8;}*/
+.noBg{ background:none !important}
+.tpLine{ border-top:#ccc 1px solid}

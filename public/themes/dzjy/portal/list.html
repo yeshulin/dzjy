@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>{$category.name} {$category.seo_title} {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$category.seo_keywords},{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$category.seo_description},{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <include file="public@scripts"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="bg">
+<script type="text/javascript" src="./四川省达州监狱_files/search.js"></script>
+<!--返回顶部按钮-->
+<input type="hidden" id="zfgk_heak_basepath" value="/dzjy/">
+<a class="backTop ico box" href="javascript:void(0);"></a>
+<!--顶层容器-->
+<div class="topBox">
+    <include file="public@nav"/>
+
+    <include file="public@search"/>
+
+    <!--主体-->
+    <div class="w1000 center mt20 overflowHidden">
+        <!--left-->
+        <div class="f_l nav01">
+            <h1><span><?=$category['name']?></span></h1>
+            <?php
+            $categoryid = $category['id'];
+            ?>
+            <ul id="zfgk_ul">
+                <portal:SubCategories item="vo" categoryId="$categoryid">
+                    <li><a href={:cmf_url('/portal/list/index',array('id'=>$vo.id))}"><span>{$vo.name|default=''}</span><i class="ico"></i></a></li>
+                </portal:SubCategories>
+
+
+            </ul>
+
+        </div>
+        <!--right-->
+        <div class="f_r contentBox" style="min-height: 141px;">
+            <div class="content01">
+                <div class="f_r">
+                    <php>
+                        /*当前文章分类 id*/
+
+                        $currentCid=$category['id'];
+                    </php>
+
+                    <b class="ico"></b><i>您所在位置</i><a href="__ROOT__/"><strong>首页</strong></a><strong>></strong> <portal:breadcrumb cid="currentCid" self="true">
+                    <a href="{:url('portal/List/index',['id'=>$vo['id']])}"><strong>{$vo.name}</strong></a><strong>></strong>
+                </portal:breadcrumb>
+                </div>
+            </div>
+
+            <div class="p30">
+                <div class="content02"><!--12/page-->
+                    <ul id="con_content">
+                        <php>
+                            $where=[
+                            'post.create_time'=>['egt',0]
+                            ];
+                        </php>
+                        <portal:articles item="vo" where="$where" order="post.create_time DESC" page="10"
+                                         relation="categories"
+                                         categoryIds="$category.id"
+                                         returnVarName="articles_data">
+                        <li><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}"><em>·</em><!--b>【狱政管理】</b--><strong>{$vo.post_title}</strong><i>{:date('Y-m-d',$vo.create_time)}</i></a></li>
+                        </portal:articles>
+                    </ul>
+                </div>
+                <div class="content03">
+                    <ul class="pagination">
+
+                            <page/>
+
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+
+</body></html>

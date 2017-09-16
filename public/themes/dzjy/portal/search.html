@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="renderer" content="webkit">
+	<title>搜索 {$theme_vars.varName1|default=''} </title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="">
+	<include file="public@head"/>
+	<include file="public@scripts"/>
+	<hook name="before_head_end"/>
+</head>
+<body class="bg">
+<script type="text/javascript" src="./四川省达州监狱_files/search.js"></script>
+<!--返回顶部按钮-->
+<input type="hidden" id="zfgk_heak_basepath" value="/dzjy/">
+<a class="backTop ico box" href="javascript:void(0);"></a>
+<!--顶层容器-->
+<div class="topBox">
+	<include file="public@nav"/>
+
+	<include file="public@search"/>
+
+	<!--主体-->
+	<div class="w1000 center mt20 overflowHidden">
+
+		<div class="wAuto contentBox" style="min-height: 141px;">
+			<div class="content01">
+				<div class="f_r">
+					<b class="ico"></b><i>您所在位置</i><strong>'{$keyword}' 搜索结果</strong>
+				</div>
+			</div>
+
+			<div class="p30">
+				<div class="content02"><!--12/page-->
+					<ul id="zfgk_all_data_content">
+						<php>
+							$where=[
+							'post.create_time'=>['egt',0],
+							'post.post_title'=>['like',"%$keyword%"]
+							];
+						</php>
+
+						<portal:articles item="vo" where="$where" order="post.create_time DESC" page="10">
+							<li><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id']))}"><em>·</em><!--b>【狱政管理】</b--><strong>{$vo.post_title}</strong><i>{:date('Y-m-d',$vo.create_time)}</i></a></li>
+						</portal:articles>
+					</ul>
+				</div>
+				<div class="content03">
+
+						<ul class="pagination">
+
+							<page/>
+
+						</ul>
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+
+	<!--页脚-->
+
+	<include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+
+</body></html>

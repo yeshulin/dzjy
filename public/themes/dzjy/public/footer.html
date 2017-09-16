@@ -1,0 +1,33 @@
+
+<!--页脚-->
+
+<div class="footerBox mt20">
+    <div class="footer">
+        <!--兄弟单位-->
+        <div class="overflowHidden box">
+            <div class="personListContent">
+                <h1><span>兄弟单位</span><b class="ico"></b></h1>
+                <ul id="brother_org">
+                    <links>
+                        <a href="{$vo.url|default=''}" target="{$vo.target|default=''}">{$vo.name|default=''}</a>&nbsp;
+                    </links>
+                </ul>
+            </div>
+        </div>
+        <!--页脚信息-->
+        <div class="wAuto overflowHidden mt30">
+            <div class="siteIco f_r">
+                <a href="http://bszs.conac.cn/sitename?method=show&amp;id=0AE08CD6A52F28A5E053012819AC7029" target="_blank"><img src="__TMPL__/public/assets/images/conac.png"></a>
+            </div>
+        </div>
+        <div class="footerInfo f_l">
+            <p><span>版权所有：四川省监狱管理局</span><span>地址：四川省成都市滨江中路1号</span><span>邮编：610016</span></p>
+            <p><span> 备案号:
+        <notempty name="site_info.site_icp">
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">{$site_info.site_icp}</a>
+            <else/>
+            请在后台设置"网站信息"设置"备案信息"
+        </notempty></span><span>网站维护：四川省监狱管理局信息中心</span></p>
+        </div>
+    </div>
+</div>

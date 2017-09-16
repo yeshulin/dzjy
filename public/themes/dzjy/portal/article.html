@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>{$article.post_title}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <include file="public@scripts"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="bg">
+<script type="text/javascript" src="./四川省达州监狱_files/search.js"></script>
+<!--返回顶部按钮-->
+<input type="hidden" id="zfgk_heak_basepath" value="/dzjy/">
+<a class="backTop ico box" href="javascript:void(0);"></a>
+<!--顶层容器-->
+<div class="topBox">
+    <include file="public@nav"/>
+
+    <include file="public@search"/>
+
+    <!--主体-->
+    <div class="w1000 center mt20 overflowHidden">
+        <div class="wAuto contentBox" style="min-height: 141px;">
+            <div class="content01">
+                <div class="f_r">
+
+
+
+
+                    <php>
+                        /*当前文章分类 id*/
+
+                        $currentCid=$category['id'];
+                    </php>
+
+                    <b class="ico"></b><i>您所在位置</i><a href="__ROOT__/"><strong>首页</strong></a><strong>></strong> <portal:breadcrumb cid="currentCid" self="true">
+                    <a href="{:url('portal/List/index',['id'=>$vo['id']])}"><strong>{$vo.name}</strong></a><strong>></strong><strong>{$article.post_title}</strong>
+                    </portal:breadcrumb>
+                </div>
+            </div>
+            <div class="content02">
+                <div class="p30">
+                    <!--标题-->
+                    <if condition="$article['post_status']">
+                    <div class="content04">
+                        <h1 id="news_title">{$article.post_title}</h1>
+                        <p><span>{:date('Y-m-d H:i',$article.published_time)} 作者: {$article.user.user_nickname}</span>
+                        <span>
+		    			<a href="javascript:;"><i class="fa fa-eye"></i><span>{$article.post_hits}</span></a>
+						<a href="{:url('portal/Article/doLike',array('id'=>$article['id']))}" class="js-count-btn"><i
+                                class="fa fa-thumbs-up"></i><span class="count">{$article.post_like}</span></a>
+						</p>
+                    </div>
+                    <!--内容-->
+                    <div class="content05">
+                        {$article.post_content}
+                    </div>
+                    <if condition="!empty($article['post_source'])">
+                        <div>
+                            <b>注：本文转载自{$article.post_source}，转载目的在于传递更多信息，并不代表本网赞同其观点和对其真实性负责。如有侵权行为，请联系我们，我们会及时删除。</b>
+                        </div>
+                    </if>
+                    <else/>
+                    <h2 style="text-align: center;">由于某些原因，此帖已被管理员关闭!</h2>
+                    </if>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+
+</body></html>

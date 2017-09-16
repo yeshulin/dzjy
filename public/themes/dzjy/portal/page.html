@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>{$page.post_title}</title>
+    <meta name="keywords" content="{$page.post_keywords}"/>
+    <meta name="description" content="{$page.post_excerpt}">
+    <include file="public@head"/>
+    <include file="public@scripts"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="bg">
+<script type="text/javascript" src="./四川省达州监狱_files/search.js"></script>
+<!--返回顶部按钮-->
+<input type="hidden" id="zfgk_heak_basepath" value="/dzjy/">
+<a class="backTop ico box" href="javascript:void(0);"></a>
+<!--顶层容器-->
+<div class="topBox">
+    <include file="public@nav"/>
+
+    <include file="public@search"/>
+
+    <!--主体-->
+    <div class="w1000 center mt20 overflowHidden">
+        <div class="wAuto contentBox" style="min-height: 141px;">
+            <div class="content01">
+                <div class="f_r">
+
+
+
+
+                    <b class="ico"></b><i>您现在所在的位置</i>
+                    <i><a href="http://125.71.204.85:8000/dzjy/news/index">新闻中心</a></i><em>&gt;</em>
+                    <strong>新闻详情</strong>
+                </div>
+            </div>
+            <div class="content02">
+                <div class="p30">
+                    <!--标题-->
+                    <div class="content04">
+                        <h1 id="news_title">{$page.post_title|default=''}</h1>
+                        <p><span>日期：</span><b id="news_regdate">2017年09月05日</b>
+                            <span>来源：</span><b id="news_source">四川省达州监狱</b></p>
+                    </div>
+                    <!--内容-->
+                    <div class="content05">
+                        {$page.post_content|default=''}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+
+</body></html>

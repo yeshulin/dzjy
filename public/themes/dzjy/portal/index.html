@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>首页 {$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_seo_keywords|default=''}"/>
+    <meta name="description" content="{$site_info.site_seo_description|default=''}">
+    <include file="public@head"/>
+    <include file="public@scripts"/>
+    <hook name="before_head_end"/>
+</head>
+<body class="bg">
+
+<!--顶层容器-->
+<div class="topBox">
+    <include file="public@nav"/>
+
+    <include file="public@search"/>
+
+    <!--banner01-->
+    <div class="banner01 center mt10 img">
+        <img src=".__TMPL__/public/assets/images/banner.png"></div>
+    <!--图片尺寸1000X80-->
+    <!--焦点图-->
+    <div class="w1000 center mt10 overflowHidden">
+        <!--focus-->
+        <div class="focusBox f_l">
+            <div class="hiSlider-wrap" style="overflow: hidden; position: relative; width: 750px;">
+                <ul class="hiSlider hiSlider01" id="home_new_pic" style="width: 500%; left: -750px; position: relative;">
+                    <php>
+                        $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+                    </php>
+                    <slides id="$top_slide_id">
+                    <li class="hiSlider-item" style="width: 750px; float: left;"><a href="{$vo.url|default=''}"><img src="{:cmf_get_image_url($vo.image)}" alt="{$vo.title|default=''}"></a></li>
+                    </slides>
+                    <noslides id="$top_slide_id">
+                     <li class="hiSlider-item" style="width: 750px; float: left;"><a href="#"><img src="__TMPL__/public/assets/images/demo/1.jpg" alt="此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！"></a></li>
+                     <li class="hiSlider-item" style="width: 750px; float: left;"><a href="#"><img src="__TMPL__/public/assets/images/demo/2.jpg" alt="此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！"></a></li>
+                     <li class="hiSlider-item" style="width: 750px; float: left;"><a href="#"><img src="__TMPL__/public/assets/images/demo/3.jpg" alt="此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！"></a></li>
+                    </noslides>
+                </ul>
+                <a href="javascript:;" class="hiSlider-btn-prev">prev</a><a href="javascript:;" class="hiSlider-btn-next">next</a>
+                <div class="hiSlider-pages">
+                   </div>
+                </div>
+        </div>
+        <!--events-->
+        <div class="eventsList f_r">
+            <ul id="home_new_no_pic">
+                <portal:articles limit="4" order="post.published_time DESC" categoryIds="0">
+                <li><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><i class="limit24">{$vo.post_title}</i><strong></strong></a></li>
+                </portal:articles>
+            </ul>
+        </div>
+    </div>
+    <!--执行公示-->
+    <div class="w1000 center mt10 overflowHidden">
+        <!--刑罚执行公示-->
+        <div class="box box01 f_r">
+            <div class="boxTitle">
+                <span>刑罚执行公示</span><a href="{:cmf_url('/portal/list/index',array('id'=>10))}">更多</a>
+            </div>
+            <div class=" p20">
+                <div id="noteList" class="noteList">
+                    <ul>
+                    <portal:articles limit="6" order="post.published_time DESC" categoryIds="10">
+                        <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
+                    </portal:articles>
+                </ul></div>
+            </div>
+        </div>
+        <!--简介-->
+        <div class="box box03 f_l">
+            <div class="boxTitle">
+                <span>单位概况</span><a href="/portal/page/index/id/32.html">更多</a>
+            </div>
+            <div class="p20 box03Text h220" id="aboutContent">
+
+
+                <p><span style="FONT-FAMILY: 楷体_GB2312; FONT-SIZE: 21px"><img src=".__TMPL__/public/assets/images/about.jpg" width="180" height="110"></span></p>
+                <p style="text-align:center"></p>
+                <p style="text-align: left; line-height: 2em;"> 四川省达州监狱始建于1953年，监狱50多年来经历过10多次分分合合，几次更名等变迁。由于老监狱数次遭受洪灾侵袭，服刑人员监舍成为危房，办公条件简陋。按照布局调整的要求，在达州市罗江镇建立新监狱。经过几年来艰苦奋战，新监狱终于落成。于2011年1月27由达州市通川区肖公庙路118号旧址搬迁到达州市通川区罗江镇洞巴村六社新址。紧临国道210线，距达州市约11公里，距罗江镇1.3公里</p>
+
+            </div>
+
+            <div class="box03Btn">
+                <a class="ml20" href="/portal/page/index/id/35.html"><span class="ico address"></span><i>联系地址</i></a> <a class="ml20" href="/portal/page/index/id/37.html"><span class="ico tel"></span><i>咨询电话</i></a>
+            </div>
+        </div>
+        <!--常用功能-->
+        <div class="box box02 f_r mt10 appIcoList">
+            <a id="zfgk_home_pic_url_4" href="http://125.71.204.85:8000/dzjy/query/login" target="_blank"><span></span>
+                <p>
+                    <strong class=""><em>
+                        <img src=".__TMPL__/public/assets/images/chaxun.png">
+                        <img src=".__TMPL__/public/assets/images/chaxun.png">
+                    </em></strong>
+                    <i class="limit08">服刑人员信息查询</i>
+                </p>
+            </a>
+            <a id="zfgk_home_pic_url_5" href="/portal/page/index/id/34.html"><span></span>
+                <p>
+                    <strong class=""><em>
+                        <img src=".__TMPL__/public/assets/images/huijian.png">
+                        <img src=".__TMPL__/public/assets/images/huijian.png">
+                    </em></strong><i class="limit08">今日会见查询</i>
+                </p>
+            </a>
+            <a id="zfgk_home_pic_url_6" href="/portal/list/index/id/26.html"><span></span>
+                <p>
+                    <strong class=""><em>
+                        <img src=".__TMPL__/public/assets/images/xuzhi.png">
+                        <img src=".__TMPL__/public/assets/images/xuzhi.png">
+                    </em></strong><i class="limit08">会见须知</i>
+                </p>
+            </a>
+            <a id="zfgk_home_pic_url_7" href="http://125.71.204.85:8000/dzjy/service/index.action"><span></span>
+                <p>
+                    <strong class="">
+                        <em>
+                            <img src=".__TMPL__/public/assets/images/email.png">
+                            <img src=".__TMPL__/public/assets/images/email.png">
+                        </em>
+                    </strong>
+                    <i class="limit08">监狱长信箱</i>
+                </p>
+            </a>
+        </div>
+        <!--banner02-->
+        <div class="banner02 img mt10 f_l ">
+            <a id="zfgk_home_pic_url_3" href="http://125.71.204.85:8000/dzjy/service/petition.action" class="fadeFilter">
+                <img src=".__TMPL__/public/assets/images/xinfang.png">
+            </a>
+        </div>
+        <!--图片尺寸388X80-->
+    </div>
+    <!--滚动图片新闻-->
+    <div class="w1000 center mt10 overflowHidden">
+        <div class="box box04">
+            <div class="boxTitle">
+                <span>图片新闻</span>
+            </div>
+            <php>
+                $last_images_limt = 8;
+            </php>
+            <div class="carousel box04Content" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 960px;">
+                <ul id="news_not_jd_pic" style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; width: 1152px; left: -1152px;">
+                    <portal:articles limit="$last_images_limt" order="post.published_time DESC" categoryIds="0">
+                        <if condition="$vo.more.thumbnail neq ''">
+                    <li style="overflow: hidden; float: left; width: 188px; height: 120px;"><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><img src="{:cmf_get_image_url($vo.more.thumbnail)}"><p><span>{$vo.post_title}</span></p></a></li>
+                        </if>
+                    </portal:articles>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--自定义模块-->
+    <php>
+        $last_news_limit=4;
+    </php>
+    <div class="w1000 center mt10 overflowHidden">
+        <div class="box box05 f_l">
+            <div class="boxTitle">
+                <span>新闻中心</span><a href="{:cmf_url('/portal/list/index',array('id'=>8))}">更多</a>
+            </div>
+            <div class="p20">
+                <div class="myList" id="myNewsList">
+                    <ul>
+                    <portal:articles limit="$last_news_limit" order="post.published_time DESC" categoryIds="8">
+                    <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
+                    </portal:articles>
+                </ul></div>
+            </div>
+        </div>
+        <div class="box box05 f_r">
+            <div class="boxTitle">
+                <span>警察风采</span><a href="{:cmf_url('/portal/list/index',array('id'=>9))}">更多</a>
+            </div>
+            <div class="p20">
+                <div class="myList" id="myYjfcList">
+                    <ul>
+                    <portal:articles limit="$last_news_limit" order="post.published_time DESC" categoryIds="9">
+                    <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
+                    </portal:articles>
+                </ul></div>
+            </div>
+        </div>
+    </div>
+    <!--banner02-->
+    <div class="w1000 center mt10 overflowHidden">
+        <div class="banner03 img f_l ">
+            <a id="zfgk_home_pic_url_8" href="{:cmf_url('/portal/list/index',array('id'=>19))}" class="fadeFilter">
+                <img src=".__TMPL__/public/assets/images/chengguo.png">
+            </a>
+        </div>
+        <!--图片尺寸495X80-->
+        <div class="banner03 img f_r ">
+            <a id="zfgk_home_pic_url_9" href="{:cmf_url('/portal/list/index',array('id'=>18))}" class="fadeFilter">
+                <img src=".__TMPL__/public/assets/images/jianshe.png">
+            </a>
+        </div>
+        <!--图片尺寸495X80-->
+    </div>
+    <!--自定义模块-->
+    <div class="w1000 center mt10 overflowHidden">
+        <div class="box box05 f_l">
+            <div class="boxTitle">
+                <span>教育改造</span><a href="{:cmf_url('/portal/list/index',array('id'=>16))}">更多</a>
+            </div>
+            <div class="p20">
+                <div class="myList" id="myYjfcList">
+                    <ul>
+                        <portal:articles limit="$last_news_limit" order="post.published_time DESC" categoryIds="16">
+                            <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
+                        </portal:articles>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="box box05 f_r">
+            <div class="boxTitle">
+                <span>法规制度</span><a href="{:cmf_url('/portal/list/index',array('id'=>20))}">更多</a>
+            </div>
+            <div class="p20">
+                <div class="myList" id="myYjfcList">
+                    <ul>
+                        <portal:articles limit="$last_news_limit" order="post.published_time DESC" categoryIds="20">
+                            <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
+                        </portal:articles>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <include file="public@footer"/>
+</div>
+
+<div>
+
+</div>
+<script type="text/javascript">
+    //轮播
+    $(".hiSlider01").hiSlider({
+        isFlexible: true,
+        isSupportTouch: true,
+        titleAttr: function (curIdx) {
+            return $('img', this).attr('alt');
+        }
+    });
+</script>
+</body></html>
