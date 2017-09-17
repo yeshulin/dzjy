@@ -57,12 +57,12 @@
         <!--刑罚执行公示-->
         <div class="box box01 f_r">
             <div class="boxTitle">
-                <span>刑罚执行公示</span><a href="{:cmf_url('/portal/list/index',array('id'=>10))}">更多</a>
+                <span>刑罚执行公示</span><a href="{:cmf_url('/portal/list/index',array('id'=>11))}">更多</a>
             </div>
             <div class=" p20">
                 <div id="noteList" class="noteList">
                     <ul>
-                    <portal:articles limit="6" order="post.published_time DESC" categoryIds="10">
+                    <portal:articles limit="6" order="post.published_time DESC" categoryIds="11">
                         <li><span style="top: 100%;"></span><a href="{:cmf_url('portal/Article/index',array('id'=>$vo.id,'cid'=>$vo.category_id))}"><em>·</em><strong>{$vo.post_title}</strong><i>{:date("Y-m-d",$vo.create_time)}</i></a></li>
                     </portal:articles>
                 </ul></div>
