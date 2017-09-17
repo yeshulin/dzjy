@@ -240,13 +240,34 @@
 
 </div>
 <script type="text/javascript">
-    //轮播
-    $(".hiSlider01").hiSlider({
-        isFlexible: true,
-        isSupportTouch: true,
-        titleAttr: function (curIdx) {
-            return $('img', this).attr('alt');
+    $(document).ready(function(){
+
+        //轮播
+        $(".hiSlider01").hiSlider({
+            isFlexible: true,
+            isSupportTouch: true,
+            titleAttr: function (curIdx) {
+                return $('img', this).attr('alt');
+            }
+        });
+        //滚动新闻
+        $(".carousel").jCarouselLite({
+            auto: 2000,
+            speed: 1000,
+            visible: 5,
+            onMouse: true
+        });
+        if($(".carousel")){
+            //滚动新闻
+            $(".carousel").jCarouselLite({
+                auto: 2000,
+                speed: 1000,
+                visible: 5,
+                onMouse: true
+            });
         }
+
     });
+
 </script>
 </body></html>
